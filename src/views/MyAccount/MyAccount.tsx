@@ -1,6 +1,6 @@
 import moment from 'moment';
 import { useContext } from 'react';
-import { WebsiteNav } from '../../components';
+import { Spinner, WebsiteNav } from '../../components';
 import {
     EditOutline,
     Email,
@@ -33,8 +33,11 @@ export default function MyAccount() {
     const [toggleEdit, updateToggleEdit] = MyAccountHooks.useToggleEdit();
 
     return (
+        
         <div id="my-account">
-            <WebsiteNav />
+            {Object.keys(profile).length===0?
+                <Spinner/>:[
+            <WebsiteNav />,
             <div className="content">
                 <div className="bottom-pane"></div>
                 <div className="info">
@@ -303,7 +306,7 @@ export default function MyAccount() {
                         {toggleEdit.passwordReadOnly && <p></p>}
                     </div>
                 </div>
-            </div>
+            </div>]}
         </div>
     );
 }

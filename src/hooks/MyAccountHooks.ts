@@ -29,6 +29,8 @@ export function getUserInDb(updater: ProfileUpdater, jwt: JWT) {
     })
         .then((res) => res.json())
         .then((data) => {
+            console.log(data);
+            
             updater(data);
         });
 }
@@ -107,3 +109,4 @@ export function useToggleEdit() {
 
     return <const>[toggleState, updateToggleState];
 }
+
